@@ -18,7 +18,6 @@
           </el-form-item>
 
         </el-form>
-        {{$store.state.globalSettings}}
       </div>
     </el-card>
   </div>
