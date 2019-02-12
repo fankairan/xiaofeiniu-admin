@@ -4,7 +4,7 @@
             <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>全局设置</el-breadcrumb-item>
         </el-breadcrumb>    
-        <!--
+        <!--    
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="/main">首页</el-breadcrumb-item>
             <el-breadcrumb-item>全局设置</el-breadcrumb-item>
@@ -90,7 +90,7 @@
                     }else{
                         this.$message.error('全局设置修改失败！');
                     }
-                }).catch((res)=>{
+                }).catch((err)=>{
                     console.log(err);
                 })
             },

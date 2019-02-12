@@ -1,9 +1,8 @@
 <template>
     <div class="xfn-category-list">
-        <el-breadcrumb>
-            <el-breadcrumb-item>首页</el-breadcrumb-item>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>菜品类别管理</el-breadcrumb-item>
-            <el-breadcrumb-item>类别管理</el-breadcrumb-item>
         </el-breadcrumb>
         
         <br/>

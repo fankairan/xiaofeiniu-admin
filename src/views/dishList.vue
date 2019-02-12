@@ -1,6 +1,11 @@
 <template>
-    <div class="">
-        <h1>菜品列表</h1>
+    <div class="xfn-dish-list">
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>菜品管理</el-breadcrumb-item>
+            <el-breadcrumb-item>菜品列表</el-breadcrumb-item>
+        </el-breadcrumb>
+        <br>
         <el-tabs type="border-card">
             <el-tab-pane v-for="(c,i) in dishList">
                 <span slot="label">
@@ -8,13 +13,14 @@
                 </span>
 
                 <el-row>
-                    <el-col class="dish-box" v-for='(d,j) in c.dishList' :xs="12" :md="9" :lg="6" :xl="4">
+                    <el-col class="dish-box" v-for='(d,j) in c.dishList' :xs="24" :md="12" :lg="6" :xl="4">
                         <!-- <xfn-dish :Data="6"></xfn-dish> -->
                         <span class="dish-title" :class='{active:isActive&&dishIndex==j}'>{{d.title}}</span>
                          <span class="dish-detail" :class='{active:isActive&&dishIndex==j}'>{{d.detail}}</span>
+                         <span class="dish-price" :class='{active:isActive&&dishIndex==j}'>{{d.price | currency}}</span>
                        <img :src="require('../assets/img/dish/'+d.imgUrl)" class="dish-img" style="max-width:98%;">
 
-                        <div class="dish-cover">
+                        <div class="dish-cover" :class='{active:isActive&&dishIndex==j}'>
                         </div>  
                         <div class="dish-event" @mouseenter="dishListAct(j)" @mouseleave="dishListNor"></div>
                     </el-col>
@@ -117,9 +123,24 @@
            
         }
 
-        .dish-cover:hover{
+        .dish-cover.active{
             background-color: rgba( 0, 0, 0, 0.6);
 
+        }
+
+        .dish-price{
+            position: absolute;
+            bottom: 1.2rem;
+            right: 0.8rem;
+            padding-right: 0.8rem;
+            color: #fc0;
+            font-size: 15px;
+            z-index: 5;
+            display: none;
+        }
+
+        .dish-price.active{
+            display: block;
         }
 
         .dish-event{
