@@ -7,13 +7,13 @@
         </el-breadcrumb>
         <br>
         <el-tabs type="border-card">
-            <el-tab-pane v-for="(c,i) in dishList">
+            <el-tab-pane v-for="(c,i) in dishList" :key="i">
                 <span slot="label">
                   <el-badge :value="c.dishList.length" class="dot">{{c.cname}}</el-badge>
                 </span>
 
                 <el-row>
-                    <el-col class="dish-box" v-for='(d,j) in c.dishList' :xs="24" :md="12" :lg="6" :xl="4">
+                    <el-col class="dish-box" v-for='(d,j) in c.dishList' :key="j" :xs="24" :md="12" :lg="6" :xl="4">
                         <!-- <xfn-dish :Data="6"></xfn-dish> -->
                         <span class="dish-title" :class='{active:isActive&&dishIndex==j}'>{{d.title}}</span>
                          <span class="dish-detail" :class='{active:isActive&&dishIndex==j}'>{{d.detail}}</span>

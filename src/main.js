@@ -34,13 +34,13 @@ Vue.filter('dateTime', (val) => {
 
   var hh=date.getHours();
   hh = hh > 0 ? hh : '0' + hh;
-  var mm=date.getMinutes();
-  mm = mm > 0 ? mm : '0' + mm;
+  var mi=date.getMinutes();
+  mi = mi > 0 ? mi : '0' + mi;
   var ss=date.getSeconds();
   ss = ss > 0 ? ss : '0' + ss;
 
 
-  return yy+'-'+mm+'-'+dd+' '+hh+':'+mm+':'+ss
+  return yy+'-'+mm+'-'+dd+' '+hh+':'+mi+':'+ss
 })
 
 Vue.filter('currency', (val) => {
@@ -54,6 +54,7 @@ Vue.filter('tableStatus',(val)=>{
     else if(val==3) return '占用';
     else return '其他';
 })
+
 
 new Vue({
   router,

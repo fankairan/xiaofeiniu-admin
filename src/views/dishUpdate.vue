@@ -33,7 +33,12 @@
                     </el-form-item>
 
                     <el-form-item label="菜品类别：">
-                        <el-input v-model="formData.categoryId" placeholder="修改菜品类别"></el-input>
+                        <el-input v-model="formData.categoryId" placeholder="修改请填写以下类别的编号" type="number"></el-input>
+                        <span v-for="(c,i) in cateGoryList" :key="i">
+                            <el-tag type="info">{{c.cid}}</el-tag>
+                            <el-tag type="success" class="margin-r">{{c.cname}}</el-tag>
+                        </span>
+                       
                     </el-form-item>
 
                     <el-form-item>
@@ -57,8 +62,23 @@ export default {
                 price:'',
                 detail:'',
                 categoryId:''
-            }
+            },
+
+            cateGoryList:[],
+            cid:[]
         }
+    },
+
+    mounted(){
+        var url=this.$store.state.globalSettings.apiUrl+'/admin/category';
+        this.$axios.get(url).then((res)=>{
+            this.cateGoryList=res.data;
+            for(var value of this.cateGoryList){
+                this.cid.push(value.cid);
+            }
+        }).catch((err)=>{
+            console.log(err);
+        })
     },
 
     methods:{
@@ -71,23 +91,29 @@ export default {
        
             if(this.formData.dishId){
                 var msg=!this.formData.dishName&&!this.formData.imgUrl&&!this.formData.price&&!this.formData.detail&&!this.formData.categoryId;
+                var isDid=this.cid.indexOf(Number(this.formData.categoryId))==-1? false:true;
                 if(!msg){
-                    if(!titleReg.test(this.formData.dishName)){
+                    if(!titleReg.test(this.formData.dishName)&&this.formData.dishName){
                         this.$message.error('菜品名称格式不正确！');
                         return;
                     }
-                    if(!imgReg.test(this.formData.imgUrl)){
+                    if(!imgReg.test(this.formData.imgUrl)&&this.formData.imgUrl){
                         this.$message.error('图片格式不正确！');
                         return;
                     }
-                    if(!priceReg.test(this.formData.price)){
+                    if(!priceReg.test(this.formData.price)&&this.formData.price){
                         this.$message.error('价格格式不正确！');
                         return;
                     }
-                    if(!detailReg.test(this.formData.detail)){
+                    if(!detailReg.test(this.formData.detail)&&this.formData.detail){
                     this.$message.error('详情格式不正确！');
                     return;
                     }
+                    if(!isDid&&this.formData.categoryId){
+                        this.$message.error('编号格式错误或不存在！');
+                        return;
+                    }
+
                     this.$axios.put(url,this.formData).then((res)=>{
                     if(res.data.code==200){
                         this.$message.success(res.data.msg);
@@ -127,3 +153,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+    .margin-r{
+        margin-right: 0.5rem;
+    }
+</style>
+
