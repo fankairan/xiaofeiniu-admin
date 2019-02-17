@@ -3,7 +3,7 @@
       <h3 class="xfn-title">{{$store.state.globalSettings.appName}}管理后台</h3>
       <div class="xfn-right">
         当前用户：{{$store.state.adminName}}
-        <el-button size="mini" @click="quit">退出</el-button>
+        <el-button size="mini" @click="quit" type="danger" plain>退出</el-button>
       </div>
   </div>
 </template>

@@ -62,7 +62,7 @@
 
         methods:{       //res: 服务器返回的响应消息  //file：从INPUT[type]中读取的第一个上传的文件对象
             doUploadSucc(res,file){  //文件上传成功后,客户端得到响应消息之后的处理函数
-                    console.log(res);
+                    // console.log(res);
                     this.formData.imgUrl=res.fileName;
                     this.imgUrl=URL.createObjectURL(file.raw);//把上传的文件编码为DataURL字符串
             },

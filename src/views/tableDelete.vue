@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="table-delete">
         <el-breadcrumb>
             <el-breadcrumb-item to="/main">首页</el-breadcrumb-item>
             <el-breadcrumb-item>桌台管理</el-breadcrumb-item>

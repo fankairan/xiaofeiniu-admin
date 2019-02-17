@@ -41,7 +41,7 @@
                 var url=this.$store.state.globalSettings.apiUrl+'/admin/table';
                 this.$axios.get(url).then(({data})=>{
                         this.tableList=data;
-                        console.log(data);
+                        // console.log(data);
                 }).catch((err)=>{
                     console.log(err);
                 })
@@ -54,7 +54,7 @@
 
                 this.$axios.get(url).then((res)=>{
                     this.reserveList=res.data;
-                    console.log(res.data);
+                    // console.log(res.data);
                 }).catch((err)=>{
                     console.log(err);
                 })

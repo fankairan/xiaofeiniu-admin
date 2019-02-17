@@ -157,7 +157,7 @@
                   
 
                     if(!this.formData.phone && !this.formData.contactName && !this.formData.contactTime && !this.formData.dinnerTime){
-                        console.log(111);
+                        // console.log(111);
                         this.$alert('修改信息不能为空！', '提示', {
                             confirmButtonText: '确定',
                             type: 'error',
@@ -195,7 +195,7 @@
 
             showTableDetail(){
                 this.dialogTableDetailVisible=true;
-                console.log(this.data);//当前桌子的数据
+                // console.log(this.data);//当前桌子的数据
 
             },
 
@@ -222,7 +222,7 @@
                     width:200,
                     errorCorrectionLevel:'H'
                 },(err,url)=>{
-                    console.log(url);
+                    // console.log(url);
                     this.qrcodeData=url;
                 })
             }

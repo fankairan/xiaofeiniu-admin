@@ -15,7 +15,7 @@ import DishList from './views/dishList.vue'
 import DishAdd from './views/dishAdd.vue'
 import DishDelete from './views/dishDelete.vue'
 import DishUpdate from './views/dishUpdate.vue'
-import OrderhList from './views/orderList.vue'
+import OrderList from './views/orderList.vue'
 import Security from './views/security.vue'
 
 Vue.use(Router)
@@ -41,7 +41,7 @@ export default new Router({
         { path: '/dish/add', component: DishAdd },
         { path: '/dish/delete', component: DishDelete },
         { path: '/dish/update', component: DishUpdate },
-        { path: '/order/list', component: OrderhList },
+        { path: '/orderList', component: OrderList },
         { path: '/security/', component: Security }
 
       ]

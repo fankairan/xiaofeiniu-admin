@@ -92,7 +92,7 @@
                         console.log(err);
                     })
                 }).catch(()=>{
-                    console.log('用户取消操作');
+                    // console.log('用户取消操作');
                 })
             }
 

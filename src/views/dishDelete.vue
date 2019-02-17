@@ -59,7 +59,6 @@ export default {
 
             if(index==1){
                  var url=this.$store.state.globalSettings.apiUrl+'/admin/dish/id/'+did;
-                 console.log
             }else if(index==2){
                 var url=this.$store.state.globalSettings.apiUrl+'/admin/dish/dishName/'+title;
             }

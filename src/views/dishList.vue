@@ -68,9 +68,9 @@
 </script>
 
 <style lang="scss">
-    el-tab-pane .dot>sup{
-        top: 5px;
-        z-index: 50;
+    .el-badge__content.is-fixed{
+        top: 9px!important;
+        right: 6px!important;
     }
 
     .dish-box{

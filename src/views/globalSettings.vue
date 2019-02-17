@@ -86,7 +86,7 @@
                     if(res.data.code==200){
                         this.$message.success('全局设置修改成功！');
                         //todo: 修改$store中的全局设置！！！
-                         this.$store.commit('setGlobalSettings',this.appName);
+                         this.$store.commit('setGlobalSettings',this.formData.appName);
                     }else{
                         this.$message.error('全局设置修改失败！');
                     }
