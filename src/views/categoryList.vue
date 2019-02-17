@@ -32,13 +32,7 @@
         },
 
         mounted() {
-            var url=this.$store.state.globalSettings.apiUrl+'/admin/category';
-            this.$axios.get(url).then((res)=>{
-                this.categoryList=res.data;
-            }).catch((err)=>{
-                console.log(err);
-            })
-            
+            this.getCategoryList();
         },
 
         methods:{
@@ -48,6 +42,7 @@
                        this.$axios.put(url,{cname:value,cid:c.cid}).then((res)=>{
                            if(res.data.code==200){
                                this.$message.success('类别修改成功！');
+                               this.getCategoryList();
                            }else{
                                this.$message.error('类别修改失败：'+res.data.msg);
                            }
@@ -94,7 +89,17 @@
                 }).catch(()=>{
                     // console.log('用户取消操作');
                 })
+            },
+
+            getCategoryList(){
+                 var url=this.$store.state.globalSettings.apiUrl+'/admin/category';
+                 this.$axios.get(url).then((res)=>{
+                        this.categoryList=res.data;
+                    }).catch((err)=>{
+                        console.log(err);
+                    })
             }
+
 
         }
     }
